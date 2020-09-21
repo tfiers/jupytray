@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMenu, QSystemTrayIcon
@@ -7,11 +8,13 @@ from .notebook_server import NotebookServer
 
 
 server = NotebookServer()
+server.start()
 
 app = QApplication(sys.argv)
 
-icon_path = "D:\\drive\\Loose\\scratch_project\\tray_JN\\putty.ico"
-tray_icon = QSystemTrayIcon(QIcon(icon_path), parent=app)
+icon_filename = "jupyter.ico"
+icon_path = Path(__file__).parent / icon_filename
+tray_icon = QSystemTrayIcon(QIcon(str(icon_path)), parent=app)
 tray_icon.show()
 
 
@@ -26,7 +29,6 @@ menu.addAction("Stop server").triggered.connect(server.stop)
 menu.addAction("Exit").triggered.connect(quit)
 tray_icon.setContextMenu(menu)
 
-server.start()
-
 exit_code = app.exec_()
+
 sys.exit(exit_code)
