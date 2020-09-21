@@ -7,7 +7,7 @@ class NotebookServer:
 
     def start(self):
         if self.process is None:
-            self.process = Popen(["pythonw", "-m", "notebook", "--notebook-dir", "D:/"])
+            self.process = Popen(["pythonw", "-m", "notebook"])
 
     def stop(self):
         if self.process is not None:
