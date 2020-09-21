@@ -6,7 +6,7 @@ That way you don't have to keep a separate command window open just for the serv
 
 ## Installation
 
-Make sure PyQT5 is installed:
+Make sure PyQt5 is installed:
 ```
 conda install pyqt
 ```
