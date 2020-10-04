@@ -1,14 +1,19 @@
-# Jupyter Tray App
+<h1>
+<img src="https://raw.githubusercontent.com/tfiers/jupyter-tray-app/main/jupyter_tray_app/jupyter.ico" width=32>
+Jupyter Tray App
+</h1>
 
 Run the Jupyter notebook server as a little app in the system tray. 
 
 That way you don't have to keep a separate command window open just for the server.
 
-This app is made for Windows.
+<img src="https://img.icons8.com/windows/32/000000/windows-10.png"/> This app is made for Windows.
 
 It should be portable to Mac/Linux with only minor modifications to the source code and
-the usage instructions, as 1) the tray icon GUI is made with the cross-platform 'Qt'
-framework, and 2) the source code is quite simple.
+the below usage instructions, as:
+1. The tray icon is made with the cross-platform 'Qt' GUI
+framework.
+2) The source code is quite simple, and hence easy to modify.
 
 
 ## Installation
@@ -32,7 +37,7 @@ Bring up the `run.exe` command launcher, and run:
 ```
 pythonw -m jupyter_tray_app
 ```
-Note the extra "`w`" (standing for "windowless") after "`python`".
+(Note the extra `w` after `python`. It stands for "windowless").
 
 This should start the tray app and the notebook server.
 
@@ -52,4 +57,4 @@ To have the tray server start automatically at system boot:
     - I.e. the directory that opens when you browse to the Jupyter app (at http://localhost:8888).
 6. Rename your shortcut to something like "Start Jupyter tray app"
 
-The tray app and notebook server will now auto-start after system restarts.
+The tray app and notebook server will now auto-run after system restarts.
