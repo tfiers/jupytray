@@ -1,6 +1,6 @@
 <h1>
 <img src="https://raw.githubusercontent.com/tfiers/jupytray/main/jupytray/jupyter.ico" width=32>
-Jupyter Tray App
+Jupytray
 </h1>
 
 Run the Jupyter notebook server as a little app in the system tray. 
