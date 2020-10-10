@@ -1,14 +1,14 @@
 from setuptools import find_packages, setup
 
 
-GITHUB_URL = "https://github.com/tfiers/jupyter-tray-app"
+GITHUB_URL = "https://github.com/tfiers/jupytray"
 
 with open("ReadMe.md", mode="r", encoding="utf-8") as f:
     readme = f.read()
 
 setup(
-    name="jupyter-tray-app",
-    description="Run the Jupyter notebook server as an app in the system tray",
+    name="jupytray",
+    description="Run the Jupyter notebook server as a little app in the system tray",
     author="Tomas Fiers",
     author_email="tomas.fiers@gmail.com",
     long_description=readme,
