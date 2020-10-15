@@ -21,7 +21,8 @@ setup(
         "Operating System :: OS Independent",
     ],
     install_requires=["notebook"],
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},  # This means: "Root package can be found in 'src' dir"
     # Include all .ico files in all found packages.
     package_data={"": ["*.ico"]},
     # Get package version from git tags
