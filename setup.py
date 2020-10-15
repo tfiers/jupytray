@@ -15,11 +15,11 @@ setup(
     long_description_content_type="text/markdown",
     url=GITHUB_URL,
     project_urls={"Source Code": GITHUB_URL},
-    classifiers=[
+    classifiers=(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Operating System :: OS Independent",
-    ],
+        "Operating System :: Microsoft :: Windows",
+    ),
     install_requires=["notebook"],
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # This means: "Root package can be found in 'src' dir"
