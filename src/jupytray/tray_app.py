@@ -1,8 +1,8 @@
 import sys
-from pathlib import Path
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMenu, QSystemTrayIcon
+from jupytray.icon import icon_path
 
 from .notebook_server import NotebookServer
 
@@ -36,7 +36,6 @@ def make_menu(app):
 
 
 def make_tray_icon(app, menu):
-    icon_path = Path(__file__).parent / "jupyter.ico"
     tray_icon = QSystemTrayIcon(QIcon(str(icon_path)), parent=app)
     tray_icon.setContextMenu(menu)
     tray_icon.show()

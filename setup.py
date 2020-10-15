@@ -20,7 +20,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: Microsoft :: Windows",
     ),
-    install_requires=("notebook", "click ~= 7.1"),
+    install_requires=("notebook", "click ~= 7.1", "pywin32", "winshell == 0.6"),
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # This means: "Root package can be found in 'src' dir"
     package_data={"": ["*.ico"]},  # Include all .ico files in all found packages.
