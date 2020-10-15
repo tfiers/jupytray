@@ -31,18 +31,26 @@ Finally, run
 ```
 jupytray install
 ```
-This will add a shortcut to run Jupytray to the Windows Start menu.
+This will add shortcuts to the Windows Start menu and Startup folder.
 
-It will also add this shortcut to the Windows Startup folder, which means that Jupytray
-will auto-run after system restarts. (This can be disabled in the Jupytray options
-window).
-
-To remove these shortcuts, you can later run `jupytray uninstall` (and then `pip
-uninstall jupytray`, to remove the Python package as well).
 
 
 ## Usage
 
-Open the Windows Start menu, type `Jupytray`, and hit enter.
+Open the Start menu, type `Jupytray`, and hit enter.
 
 This should start the tray app and the Jupyter notebook server.
+
+The app will also auto-run at system restarts. 
+
+
+## Deinstallation
+
+First remove the Windows shortcuts:
+```
+jupytray uninstall
+```
+Then remove the Python package:
+```
+pip uninstall jupytray
+```
