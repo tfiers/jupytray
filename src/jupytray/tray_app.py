@@ -8,22 +8,21 @@ from .notebook_server import NotebookServer
 
 
 def run_app():
-    app = make_app()
+    server = NotebookServer()
+    server.start()
+    app = make_app(server)
     exit_code = app.exec_()
     sys.exit(exit_code)
 
 
-def make_app():
+def make_app(server):
     app = QApplication(sys.argv)
-    menu = make_menu(app)
+    menu = make_menu(app, server)
     make_tray_icon(app, menu)
     return app
 
 
-def make_menu(app):
-    server = NotebookServer()
-    server.start()
-
+def make_menu(app, server):
     def quit():
         server.stop()
         app.quit()
