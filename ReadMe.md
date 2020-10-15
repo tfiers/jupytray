@@ -9,11 +9,8 @@ That way you don't have to keep a separate command window open just for the serv
 
 <img src="https://img.icons8.com/windows/32/000000/windows-10.png"/> This app is made for Windows.
 
-It should be portable to Mac/Linux with only minor modifications to the source code and
-the below usage instructions, as:
-1. The tray icon is made with the cross-platform 'Qt' GUI
-framework.
-2) The source code is quite simple, and hence easy to modify.
+(It should be portable to Mac/Linux, as the GUI uses the cross-platform 'Qt' framework.
+Pull requests for such a port are welcome).
 
 
 ## Installation
@@ -30,31 +27,22 @@ pip install jupytray
 This will get you the
 [![latest version on PyPI](https://img.shields.io/pypi/v/jupytray.svg?label=latest%20version%20on%20PyPI:)](https://pypi.python.org/pypi/jupytray/)
 
+Finally, run
+```
+jupytray install
+```
+This will add a shortcut to run Jupytray to the Windows Start menu.
+
+It will also add this shortcut to the Windows Startup folder, which means that Jupytray
+will auto-run after system restarts. (This can be disabled in the Jupytray options
+window).
+
+To remove these shortcuts, you can later run `jupytray uninstall` (and then `pip
+uninstall jupytray`, to remove the Python package as well).
+
 
 ## Usage
 
-Bring up the `run.exe` command launcher, and run:
-```
-pythonw -m jupytray
-```
-(Note the extra `w` after `python`. It stands for "windowless").
+Open the Windows Start menu, type `Jupytray`, and hit enter.
 
-This should start the tray app and the notebook server.
-
-
-### Auto-run at boot
-
-To have the tray server start automatically at system boot:
-
-1. Find your windowless Python executable:
-    - Type `pythonw.exe` in the start menu and choose "Open File Location".
-2. Open your Startup folder:
-    - Open `run.exe` and run `shell:startup`.
-3. Make a shortcut to your `pythonw.exe` in this Startup folder.
-4. In the shortcut's Properties, in the "Target" field, append `-m jupytray`
-    - So the total Target will read e.g. `C:\conda\pythonw.exe -m jupytray`
-5. In the "Start in" field, type the path you want the notebook server's root to be.
-    - I.e. the directory that opens when you browse to the Jupyter app (at http://localhost:8888).
-6. Rename your shortcut to something like "Start Jupyter tray app"
-
-The tray app and notebook server will now auto-run after system restarts.
+This should start the tray app and the Jupyter notebook server.

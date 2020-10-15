@@ -20,11 +20,11 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: Microsoft :: Windows",
     ),
-    install_requires=["notebook"],
+    install_requires=("notebook", "click ~= 7.1"),
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # This means: "Root package can be found in 'src' dir"
-    # Include all .ico files in all found packages.
-    package_data={"": ["*.ico"]},
+    package_data={"": ["*.ico"]},  # Include all .ico files in all found packages.
+    entry_points={"console_scripts": ["jupytray = jupytray.install:cli"]},
     # Get package version from git tags
     setup_requires=["setuptools_scm"],
     use_scm_version={
