@@ -2,8 +2,8 @@ import sys
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMenu, QSystemTrayIcon
-from jupytray.icon import icon_path
 
+from .icon import icon_path
 from .notebook_server import NotebookServer
 
 

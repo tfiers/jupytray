@@ -3,7 +3,8 @@ from pathlib import Path
 
 import click
 import winshell
-from jupytray.icon import icon_path
+
+from .icon import icon_path
 
 
 start_menu_dir = Path(winshell.folder("startmenu")) / "Programs"
