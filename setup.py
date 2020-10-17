@@ -24,7 +24,7 @@ setup(
     packages=find_packages(where="src"),
     package_dir={"": "src"},  # This means: "Root package can be found in 'src' dir"
     package_data={"": ["*.ico"]},  # Include all .ico files in all found packages.
-    entry_points={"console_scripts": ["jupytray = jupytray.install:cli"]},
+    entry_points={"console_scripts": ["jupytray-shortcuts = jupytray.shortcuts:cli"]},
     # Get package version from git tags
     setup_requires=["setuptools_scm"],
     use_scm_version={

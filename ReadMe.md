@@ -29,7 +29,7 @@ This will get you the
 
 Finally, run
 ```
-jupytray install
+jupytray-shortcuts install
 ```
 This will add shortcuts to the Windows Start menu and Startup folder.
 
@@ -48,7 +48,7 @@ The app will also auto-run at system restarts.
 
 First remove the Windows shortcuts:
 ```
-jupytray uninstall
+jupytray-shortcuts uninstall
 ```
 Then remove the Python package:
 ```
