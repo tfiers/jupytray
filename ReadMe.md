@@ -41,7 +41,7 @@ Open the Start menu, type `Jupytray`, and hit enter.
 
 This should start the tray app and the Jupyter notebook server.
 
-The app will also auto-run at system restarts. 
+The app will also auto-run at system restarts. (This can be disabled in the settings menu).
 
 
 ## Deinstallation
