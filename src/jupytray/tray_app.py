@@ -24,7 +24,7 @@ def make_app(server):
     app = QApplication([])
     app.refs = set()
     settings_window = SettingsWindow()
-    app.refs.add(settings_window)  # Prevent garbage collection to prevent closing
+    app.refs.add(settings_window)  # Prevent garbage collection, to prevent closing
     menu = make_menu(app, server, settings_window)
     make_tray_icon(app, menu)
     return app

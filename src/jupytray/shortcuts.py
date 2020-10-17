@@ -21,7 +21,7 @@ def install():
 
 @cli.command()
 def uninstall():
-    """ Remove the shortcuts installed by `jupytray install`. """
+    """ Remove the shortcuts installed by `jupytray-shortcuts install`. """
     remove_shortcut(start_menu_dir)
     remove_shortcut(startup_dir)
 
