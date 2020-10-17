@@ -25,7 +25,7 @@ Then run:
 pip install jupytray
 ```
 This will get you the
-[![latest version on PyPI](https://img.shields.io/pypi/v/jupytray.svg?label=latest%20version%20on%20PyPI:)](https://pypi.python.org/pypi/jupytray/)
+[![latest version on PyPI](https://img.shields.io/pypi/v/jupytray.svg?label=latest%20version%20on%20PyPI:)](https://pypi.org/project/jupytray/)
 
 Finally, run
 ```
