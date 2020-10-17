@@ -10,8 +10,7 @@ class NotebookServer:
     def start(self):
         if self.process is None:
             command = ["pythonw", "-m", "notebook"]
-            if settings.root_dir:
-                command.append(f"--notebook-dir={settings.root_dir}")
+            command.append(f"--notebook-dir={settings.jupyter_root_dir}")
             self.process = Popen(command)
 
     def stop(self):
