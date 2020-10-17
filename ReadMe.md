@@ -1,5 +1,5 @@
 <h1>
-<img src="src/jupytray/static/jupyter.ico" width=32>
+<img src="https://raw.githubusercontent.com/tfiers/jupytray/main/src/jupytray/static/jupyter.ico" width=32>
 Jupytray
 </h1>
 
