@@ -40,9 +40,7 @@ class Settings:
         str(Path(sys.executable).drive) + "/",  # E.g. "C:/"
     )
 
-    auto_run_at_boot = create_settings_property(
-        "AUTO_RUN_AT_BOOT", default_value=True, type=bool
-    )
+    open_browser = create_settings_property("OPEN_BROWSER", True)
 
 
 settings = Settings()
@@ -50,7 +48,7 @@ settings = Settings()
 
 class SettingsWindow(QWidget):
     def closeEvent(self, event: QCloseEvent):
-        # event.ignore()  # The default action would exit the entire application.
+        event.ignore()  # The default action would exit the entire application.
         self.hide()
 
     def __init__(self):
@@ -58,17 +56,17 @@ class SettingsWindow(QWidget):
         self.setWindowIcon(QIcon(str(icon_path)))
         self.setWindowTitle("Jupytray Settings")
         main_layout = QVBoxLayout()
-        self.checkbox = QCheckBox("Auto-run at boot")
-        self.checkbox.setChecked(settings.auto_run_at_boot)
-        self.checkbox.stateChanged.connect(self.toggle_auto_run_at_boot)
-        main_layout.addWidget(self.checkbox)
+        self.auto_run_checkbox = QCheckBox("Auto-run at boot")
+        self.auto_run_checkbox.setChecked(settings.auto_run_at_boot)
+        self.auto_run_checkbox.stateChanged.connect(self.toggle_auto_run_at_boot)
+        main_layout.addWidget(self.auto_run_checkbox)
         jupyter_groupbox = self.make_jupyter_groupbox()
         main_layout.addWidget(jupyter_groupbox)
         self.setLayout(main_layout)
-        self.show()  # Temporary; for rapid dev
+        # self.show()  # Uncomment for rapid dev
 
     def toggle_auto_run_at_boot(self):
-        settings.auto_run_at_boot = self.checkbox.isChecked()
+        settings.auto_run_at_boot = self.auto_run_checkbox.isChecked()
         if settings.auto_run_at_boot:
             create_shortcut(startup_dir)
         else:
@@ -80,7 +78,14 @@ class SettingsWindow(QWidget):
         groupbox.setLayout(layout)
         root_dir_selection_layout = self.make_root_dir_selection_layout()
         layout.addLayout(root_dir_selection_layout)
+        self.open_browser_checkbox = QCheckBox("Open browser after startup")
+        self.open_browser_checkbox.setChecked(settings.open_browser)
+        self.open_browser_checkbox.stateChanged.connect(self.toggle_open_browser)
+        layout.addWidget(self.open_browser_checkbox)
         return groupbox
+
+    def toggle_open_browser(self):
+        settings.open_browser = self.open_browser_checkbox.isChecked()
 
     def make_root_dir_selection_layout(self):
         layout = QHBoxLayout()

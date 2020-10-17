@@ -9,8 +9,14 @@ class NotebookServer:
 
     def start(self):
         if self.process is None:
-            command = ["pythonw", "-m", "notebook"]
-            command.append(f"--notebook-dir={settings.jupyter_root_dir}")
+            command = [
+                "pythonw",
+                "-m",
+                "notebook",
+                f"--notebook-dir={settings.jupyter_root_dir}",
+            ]
+            if settings.open_browser == False:
+                command.append("--no-browser")
             self.process = Popen(command)
 
     def stop(self):
