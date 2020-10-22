@@ -1,4 +1,3 @@
-from PyQt5.QtGui import QCloseEvent, QIcon
 from PyQt5.QtWidgets import (
     QCheckBox,
     QFileDialog,
@@ -8,23 +7,15 @@ from PyQt5.QtWidgets import (
     QLineEdit,
     QPushButton,
     QVBoxLayout,
-    QWidget,
 )
 
-from jupytray.icon import icon_path
 from jupytray.settings.storage import settings
 from jupytray.shortcuts import create_shortcut, remove_shortcut, startup_dir
 
 
-class SettingsWindow(QWidget):
-    def closeEvent(self, event: QCloseEvent):
-        event.ignore()  # The default action would exit the entire application.
-        self.hide()
-
+class SettingsGroupbox(QGroupBox):
     def __init__(self):
-        super().__init__()
-        self.setWindowIcon(QIcon(str(icon_path)))
-        self.setWindowTitle("Jupytray Settings")
+        QGroupBox.__init__(self, title="Settings")
         main_layout = QVBoxLayout()
         self.auto_run_checkbox = QCheckBox("Auto-run at boot")
         self.auto_run_checkbox.setChecked(settings.auto_run_at_boot)
@@ -33,7 +24,6 @@ class SettingsWindow(QWidget):
         jupyter_groupbox = self.make_jupyter_groupbox()
         main_layout.addWidget(jupyter_groupbox)
         self.setLayout(main_layout)
-        # self.show()  # Uncomment for rapid dev
 
     def toggle_auto_run_at_boot(self):
         settings.auto_run_at_boot = self.auto_run_checkbox.isChecked()

@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (
 
 from .icon import icon_path
 from .notebook_server import NotebookServer
-from jupytray.settings.ui import SettingsWindow
+from jupytray.control_window import ControlWindow
 
 
 def run_app():
@@ -23,20 +23,20 @@ def run_app():
 def make_app(server):
     app = QApplication([])
     app.refs = set()
-    settings_window = SettingsWindow()
-    app.refs.add(settings_window)  # Prevent garbage collection, to prevent closing
-    menu = make_menu(app, server, settings_window)
+    control_window = ControlWindow()
+    app.refs.add(control_window)  # Prevent garbage collection, to prevent closing
+    menu = make_menu(app, server, control_window)
     make_tray_icon(app, menu)
     return app
 
 
-def make_menu(app, server, settings_window):
+def make_menu(app, server, control_window):
     def quit():
         server.stop()
         app.quit()
 
     menu = QMenu()
-    menu.addAction("Settings").triggered.connect(settings_window.show)
+    menu.addAction("Settings").triggered.connect(control_window.show)
     menu.addAction("Restart server").triggered.connect(server.restart)
     menu.addAction("Exit").triggered.connect(quit)
     return menu
