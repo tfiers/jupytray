@@ -38,7 +38,6 @@ def make_menu(app, server, settings_window):
     menu = QMenu()
     menu.addAction("Settings").triggered.connect(settings_window.show)
     menu.addAction("Restart server").triggered.connect(server.restart)
-    menu.addAction("Stop server").triggered.connect(server.stop)
     menu.addAction("Exit").triggered.connect(quit)
     return menu
 
