@@ -19,10 +19,11 @@ class NotebookServer:
                 arguments.append("--no-browser")
             self.process = QProcess()
             self.process.start(program, arguments)
-            
+
     def stop(self):
         if self.process is not None:
             self.process.terminate()
+            self.process.waitForFinished()
             self.process = None
 
     def restart(self):
