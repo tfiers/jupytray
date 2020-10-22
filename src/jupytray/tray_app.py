@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (
 
 from .icon import icon_path
 from .notebook_server import NotebookServer
-from .settings import SettingsWindow
+from jupytray.settings.ui import SettingsWindow
 
 
 def run_app():

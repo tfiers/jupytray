@@ -1,6 +1,6 @@
 from subprocess import Popen
 
-from .settings import settings
+from jupytray.settings.storage import settings
 
 
 class NotebookServer:
