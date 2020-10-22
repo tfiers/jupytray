@@ -44,6 +44,7 @@ def make_menu(app, server, control_window):
 
 def make_tray_icon(app, menu, control_window):
     tray_icon = QSystemTrayIcon(QIcon(str(icon_path)), parent=app)
+    tray_icon.setToolTip("Jupytray")
     tray_icon.setContextMenu(menu)
 
     def on_tray_icon_activated(reason: QSystemTrayIcon.ActivationReason):
