@@ -33,6 +33,10 @@ def make_app(server):
 def make_menu(app, server, control_window):
     def quit():
         server.stop()
+        app.tray_icon: QSystemTrayIcon
+        app.tray_icon.hide()
+        #   Prevent lingering of a ghost tray icon (that disappears on hover) after
+        #   process has already exited.
         app.quit()
 
     menu = QMenu()
@@ -53,3 +57,4 @@ def make_tray_icon(app, menu, control_window):
 
     tray_icon.activated.connect(on_tray_icon_activated)
     tray_icon.show()
+    app.tray_icon = tray_icon
