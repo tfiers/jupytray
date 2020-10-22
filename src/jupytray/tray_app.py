@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import (
 
 from .icon import icon_path
 from .notebook_server import NotebookServer
-from jupytray.control_window import ControlWindow
+from .control_window import ControlWindow
 
 
 def run_app():
@@ -22,11 +22,11 @@ def run_app():
 
 def make_app(server):
     app = QApplication([])
-    app.refs = set()
     control_window = ControlWindow()
+    app.refs = set()
     app.refs.add(control_window)  # Prevent garbage collection, to prevent closing
     menu = make_menu(app, server, control_window)
-    make_tray_icon(app, menu)
+    make_tray_icon(app, menu, control_window)
     return app
 
 
@@ -42,7 +42,13 @@ def make_menu(app, server, control_window):
     return menu
 
 
-def make_tray_icon(app, menu):
+def make_tray_icon(app, menu, control_window):
     tray_icon = QSystemTrayIcon(QIcon(str(icon_path)), parent=app)
     tray_icon.setContextMenu(menu)
+
+    def on_tray_icon_activated(reason: QSystemTrayIcon.ActivationReason):
+        if reason == QSystemTrayIcon.DoubleClick:
+            control_window.show()
+
+    tray_icon.activated.connect(on_tray_icon_activated)
     tray_icon.show()
