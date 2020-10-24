@@ -21,3 +21,8 @@ class ControlWindow(QWidget):
     def closeEvent(self, event: QCloseEvent):
         event.ignore()  # The default action would exit the entire application.
         self.hide()
+
+    def show_and_activate(self):
+        self.show()
+        self.activateWindow()  # If minimised: maximise (on Mac); highlight in taskbar
+        #                      # (on Windows; Windows doesn't let apps jump in front).

@@ -34,13 +34,12 @@ def make_menu(app, server, control_window):
     def quit():
         server.stop()
         app.tray_icon: QSystemTrayIcon
-        app.tray_icon.hide()
-        #   Prevent lingering of a ghost tray icon (that disappears on hover) after
-        #   process has already exited.
+        app.tray_icon.hide()  # Prevent lingering of a ghost tray icon (that disappears
+        #                     # on hover) after process has already exited.
         app.quit()
 
     menu = QMenu()
-    menu.addAction("Settings").triggered.connect(control_window.show)
+    menu.addAction("Settings").triggered.connect(control_window.show_and_activate)
     menu.addAction("Restart server").triggered.connect(server.restart)
     menu.addAction("Exit").triggered.connect(quit)
     return menu
@@ -52,9 +51,12 @@ def make_tray_icon(app, menu, control_window):
     tray_icon.setContextMenu(menu)
 
     def on_tray_icon_activated(reason: QSystemTrayIcon.ActivationReason):
-        if reason == QSystemTrayIcon.DoubleClick:
-            control_window.show()
+        if reason != QSystemTrayIcon.Context:
+            if control_window.isHidden():
+                control_window.show_and_activate()
+            else:
+                control_window.hide()
 
     tray_icon.activated.connect(on_tray_icon_activated)
     tray_icon.show()
-    app.tray_icon = tray_icon
+    app.tray_icon = tray_icon  # Save ref to tray icon so we can hide it on app exit.
