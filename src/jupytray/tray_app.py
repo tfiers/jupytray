@@ -22,7 +22,7 @@ def run_app():
 
 def make_app(server):
     app = QApplication([])
-    control_window = ControlWindow()
+    control_window = ControlWindow(server)
     app.refs = set()
     app.refs.add(control_window)  # Prevent garbage collection, to prevent closing
     menu = make_menu(app, server, control_window)

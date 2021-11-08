@@ -7,9 +7,11 @@ class NotebookServer:
 
     def __init__(self):
         self.process = QProcess()
+        self.process.setProcessChannelMode(QProcess.MergedChannels)
+        #   Merge stderr into stdout.
 
     def start(self):
-        program = "pythonw"
+        program = "python"
         arguments = [
             "-m",
             "notebook",
