@@ -1,3 +1,18 @@
+# 📕 Notice of deprecation
+
+- This app likely won't work on your system without some experimentation/debugging; and even then it's probably not stable.
+- My current solution to this is to run `jupyter notebook` in a [Windows Terminal](https://github.com/microsoft/terminal),
+and then to minimise the terminal to tray (either using the [built-in feature](https://github.com/microsoft/terminal/pull/12246),
+or a utility like [Traymond](https://github.com/fcFn/traymond)).
+- To execute the idea in this repo properly, a version oughta be written in C++ (and Qt).
+
+
+---
+
+<br>
+<br>
+<br>
+
 <h1>
 <img src="https://raw.githubusercontent.com/tfiers/jupytray/main/src/jupytray/static/jupyter.ico" width=32>
 Jupytray
